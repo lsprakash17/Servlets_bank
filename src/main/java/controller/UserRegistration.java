@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.Customerdao;
 import dto.Customer;
 
-@WebServlet("/register")
+@WebServlet("/Bank/register")
 public class UserRegistration extends HttpServlet
 {
 	@Override
@@ -36,21 +36,19 @@ public class UserRegistration extends HttpServlet
 		dao.save(user);
 		if(user!=null)
 		{
-			resp.getWriter().print("\"<script language=javascript>alert('your acount Created successfully please note Your ID);</script>");
+			resp.getWriter().print("<h1 style='color:blue;position: relative;left: 40%;'>Your UserId is : " + user.getId() + " </h1>");
 			req.getRequestDispatcher("SignUp.html").include(req, resp);
 		}
-		Customer user2=dao.check(email).get(0);
-		if(user2.getGender().equals("male"))
-			resp.getWriter().print("<h1>Hello Sir</h1>");
-		else
-			resp.getWriter().print("<h1>Hello Mam</h1>");
-		resp.getWriter().print("<h1>Your Customer Id is : " + user2.getId() + "</h1>");
-		req.getRequestDispatcher("Login.html").include(req, resp);
 		
+//		Customer user2=dao.check(email).get(0);
+//		if(user2.getGender().equals("male"))
+//			resp.getWriter().print("<h1>Hello Sir</h1>");
+//		else
+//			resp.getWriter().print("<h1>Hello Mam</h1>");
+//		resp.getWriter().print("<h1>Your Customer Id is : " + user2.getId() + "</h1>");
+//		req.getRequestDispatcher("Login.html").include(req, resp);
+//		
 		
-		
-		
-	
 	}
 	
 }
